@@ -3,6 +3,7 @@ const tabladata = document.getElementById('table-data')
 const buttonClear = document.getElementById('clear')
 const buttonProcess = document.getElementById('process')
 const selectMsg = document.getElementById('typeMessage')
+const fieldName = document.getElementById('name-field')
 
 
 // Add content
@@ -57,6 +58,15 @@ const listenerProcess = () => {
     })
 }
 
+const listenerChange = () => {
+    if(selectMsg.value === 'otro'){
+        fieldName.disabled = false
+        fieldName.value = ""
+    }else{
+        fieldName.disabled = true
+    }
+}
+
 const addTypeMsg = () => {
     for(const prop in _MSG_LIST_){
         addOption(selectMsg, prop, prop)
@@ -69,6 +79,8 @@ const addTypeMsg = () => {
 buttonProcess.addEventListener('click', listenerProcess)
 
 buttonClear.addEventListener('click', listenerClear)
+
+selectMsg.addEventListener('change', listenerChange)
 
 // Event main
 addTypeMsg()
