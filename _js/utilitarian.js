@@ -14,7 +14,7 @@ class Utilitarian {
     addRowTable(elementTable, tagTable){
         const tagInsertRowTable = elementTable.getElementsByTagName(tagTable)[0]
         const countRowExisting = tagInsertRowTable.getElementsByTagName('tr').length
-        return tagInsertRowTable.insertCell(countRowExisting)
+        return tagInsertRowTable.insertRow(countRowExisting)
     }
 
     addCellTable(elementRowTable, dataForCell){

@@ -37,7 +37,7 @@ class ModelIndex {
         this.utilitary.addEventListenerTagHtml(this.tagInputNameField, 'change', functionCallBack)
     }
 
-    anagerEventChangeSelectTypeMsg(functionCallBack){
+    managerEventChangeSelectTypeMsg(functionCallBack){
         this.utilitary.addEventListenerTagHtml(this.tagSelectTypeMsg, 'change', functionCallBack)
     }
 
