@@ -1,6 +1,9 @@
 const bussRules = new BusinessIndex()
 
 // Events
-bussRules.clear()
+bussRules.loadTypeMsgToSelect()
+bussRules.managerSelectTypeMsg()
+bussRules.managerProcessReleaseData()
 
-bussRules.processMsg()
+// Show procesing data
+bussRules.showResultProcesingMsgVisa2()
