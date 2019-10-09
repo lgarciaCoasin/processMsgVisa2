@@ -1,55 +1,35 @@
 class ModelIndex {
     constructor (){
-        this.msgVisa2 = document.getElementById('msg-text')
-        this.typeMsg = document.getElementById('type-message')
-        this.nameField = document.getElementById('name-field')
-        this.btoProcess = document.getElementById('process')
-        this.btoClear = document.getElementById('clear')
-        this.tableData = document.getElementById('table-data')
+        this.tagTextAreaMsgVisa2 = document.getElementById('msg-text')
+        this.tagSelectTypeMsg = document.getElementById('type-message')
+        this.tagInputNameField = document.getElementById('name-field')
+        this.tagBtnProcess = document.getElementById('process')
+        this.tagBtnClear = document.getElementById('clear')
+        this.tagTable = document.getElementById('table-data')
+        this.utilitary = new Utilitarian()
     }
 
-    addListener(elementHtml, event, callback){
-        elementHtml.addEventListener(event, callback)
+    addOneRegistryTable(valueFieldsTable){
+        const row = this.utilitary.addRowTable(this.tagTable, 'tbody')
+        this.utilitary.addCellTable(row, valueFieldsTable.countField)
+        this.utilitary.addCellTable(row, valueFieldsTable.nameField)
+        this.utilitary.addCellTable(row, valueFieldsTable.LengthField)
+        this.utilitary.addCellTable(row, valueFieldsTable.valueField)
     }
 
-    addOptionSelect(elementSelect, value, text){
-        const option = document.createElement('option')
-        
-        option.value = value
-        option.text = text
-        elementSelect.add(option, null)
+    addOptionSelectTypeMsg(valueOption, textOption){
+        this.utilitary.addOptionTagSelect(this.tagSelectTypeMsg, valueOption, textOption)
     }
 
-    addCell(row, data){
-        const countCell = row.getElementsByTagName('td').length
-        const cell = row.insertCell(countCell)
-        cell.innerHTML = data
+    managerEventClickBtnProcess(functionCallBack){
+        this.utilitary.addEventListenerTagHtml(this.tagBtnProcess, 'click', functionCallBack)
     }
 
-    addRowTable(elementTable, objectValueCell){
-        const tagTbody = elementTable.getElementsByTagName('tbody')[0]
-        const countRow = tagTbody.getElementsByTagName('tr').length
-        const row = tagTbody.insertRow(countRow)
-        
-        this.addCell(row, objectValueCell.cell1)
-        this.addCell(row, objectValueCell.cell2)
-        this.addCell(row, objectValueCell.cell3)
-        this.addCell(row, objectValueCell.cell4)
+    managerEventClickBtnClear(functionCallBack){
+        this.utilitary.addEventListenerTagHtml(this.tagBtnClear, 'click', functionCallBack)
     }
 
-    eraseAllRowTable(elementTable){
-        elementTable.getElementsByTagName('tbody')[0].innerHTML = ''
-    }
-
-    disableElement(elementHtml, disabled){
-        elementHtml.disabled = disabled
-    }
-
-    getValueElement(elementHtml){
-        return elementHtml.value
-    }
-
-    setValueElement(elementHtml, data){
-        elementHtml.value = data
+    eraseAllRegistryTable(){
+        this.utilitary.eraseAllRowTable(this.tagTable, 'tbody')
     }
 }
