@@ -11,9 +11,9 @@ class BusinessIndex {
     }
 
     managerSelectTypeMsg(){
-        this.modelIndex.anagerEventChangeSelectTypeMsg(() => {
+        this.modelIndex.managerEventChangeSelectTypeMsg(() => {
             this.modelIndex.tagInputNameField.value = ''
-            this.modelIndex.tagInputNameField.disableb = (this.modelIndex.tagSelectTypeMsg === 'otro') ? false : true;
+            this.modelIndex.tagInputNameField.disabled = (this.modelIndex.tagSelectTypeMsg.value === 'otro') ? false : true;
         })
     }
 
@@ -26,7 +26,7 @@ class BusinessIndex {
 
     processingMsgVisa2NameField(){
         const listNameFieldMsgVisa2 = this.modelIndex.tagInputNameField.value
-        if(this.modelIndex.tagSelectTypeMsg === 'otro')
+        if(this.modelIndex.tagSelectTypeMsg.value === 'otro')
             this.visa2.msgNameField = listNameFieldMsgVisa2.split(',')
         else
             this.visa2.msgNameField = _MSG_LIST_NAME_FIELD[this.modelIndex.tagSelectTypeMsg.value]
@@ -41,6 +41,7 @@ class BusinessIndex {
         this.modelIndex.managerEventClickBtnProcess(() => {
             this.processingMsgVisa2ValueField()
             this.processingMsgVisa2NameField()
+            this.modelIndex.eraseAllRegistryTable()
 
             this.visa2.msgValueField.forEach((element, index) => {
                 let registerMsgVisa2 = {
