@@ -1,24 +1,25 @@
-class VISA2 {
+class Visa2 {
     constructor (msg){
-        this.msgProcess = msg
-        this.msgField = [] 
+        this.msgToProcess = msg
+        this.msgValueField = []
+        this.msgNameField = [] 
     }
 
     lenMsgWithOutSeparator(){
-        let msgAux = this.msgProcess.replace(/|/gi, "") 
+        let msgAux = this.msgToProcess.replace(/|/gi, "") 
         return msgAux.length
     }
 
     lenMsgWithSeparator(){
-        return this.msgProcess.length
+        return this.msgToProcess.length
     }
 
-    processMsg(separator){
-        this.msgField = this.msgProcess.split(separator)
+    processMsgVisa2(separator){
+        this.msgValueField = this.msgToProcess.split(separator)
     }
 
     getDataElement(numDataElement){
-        return this.msgField[numDataElement]
+        return this.msgValueField[numDataElement]
     }
 
 }
