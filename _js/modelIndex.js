@@ -29,6 +29,18 @@ class ModelIndex {
         this.utilitary.addEventListenerTagHtml(this.tagBtnClear, 'click', functionCallBack)
     }
 
+    managerEventChangeTextAreaMsgVisa2(functionCallBack){
+        this.utilitary.addEventListenerTagHtml(this.tagTextAreaMsgVisa2, 'change', functionCallBack)
+    }
+
+    managerEventChangeInputNameField(functionCallBack){
+        this.utilitary.addEventListenerTagHtml(this.tagInputNameField, 'change', functionCallBack)
+    }
+
+    anagerEventChangeSelectTypeMsg(functionCallBack){
+        this.utilitary.addEventListenerTagHtml(this.tagSelectTypeMsg, 'change', functionCallBack)
+    }
+
     eraseAllRegistryTable(){
         this.utilitary.eraseAllRowTable(this.tagTable, 'tbody')
     }
