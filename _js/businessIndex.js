@@ -37,21 +37,21 @@ class BusinessIndex {
         this.visa2.processMsgVisa2('|')
     }
 
+    buildRegitryProcessingMsgVisa2(valueField, indexValue){
+        let registerMsgVisa2 = {}
+        registerMsgVisa2.countField = (indexValue + 1)
+        registerMsgVisa2.nameField = this.visa2.msgNameField[indexValue]
+        registerMsgVisa2.LengthField = valueField.length
+        registerMsgVisa2.valueField = valueField
+        this.modelIndex.addOneRegistryTable(registerMsgVisa2)
+    }
+
     showResultProcesingMsgVisa2(){
         this.modelIndex.managerEventClickBtnProcess(() => {
             this.processingMsgVisa2ValueField()
             this.processingMsgVisa2NameField()
             this.modelIndex.eraseAllRegistryTable()
-
-            this.visa2.msgValueField.forEach((element, index) => {
-                let registerMsgVisa2 = {
-                    countField : index + 1,
-                    nameField : this.visa2.msgNameField[index],
-                    LengthField : element.length,
-                    valueField : element
-                }
-                this.modelIndex.addOneRegistryTable(registerMsgVisa2)
-            });
+            this.visa2.msgValueField.forEach(this.buildRegitryProcessingMsgVisa2.bind(this))
         })
     }
 
