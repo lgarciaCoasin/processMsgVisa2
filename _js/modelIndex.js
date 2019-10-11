@@ -6,42 +6,41 @@ class ModelIndex {
         this.tagBtnProcess = document.getElementById('process')
         this.tagBtnClear = document.getElementById('clear')
         this.tagTable = document.getElementById('table-data')
-        this.utilitary = new Utilitarian()
     }
 
     addOneRegistryTable(valueFieldsTable){
-        const row = this.utilitary.addRowTable(this.tagTable, 'tbody')
-        this.utilitary.addCellTable(row, valueFieldsTable.countField)
-        this.utilitary.addCellTable(row, valueFieldsTable.nameField)
-        this.utilitary.addCellTable(row, valueFieldsTable.LengthField)
-        this.utilitary.addCellTable(row, valueFieldsTable.valueField)
+        const row = Utilitarian.addRowTable(this.tagTable, 'tbody')
+        Utilitarian.addCellTable(row, valueFieldsTable.countField)
+        Utilitarian.addCellTable(row, valueFieldsTable.nameField)
+        Utilitarian.addCellTable(row, valueFieldsTable.LengthField)
+        Utilitarian.addCellTable(row, valueFieldsTable.valueField)
     }
 
     addOptionSelectTypeMsg(valueOption, textOption){
-        this.utilitary.addOptionTagSelect(this.tagSelectTypeMsg, valueOption, textOption)
+        Utilitarian.addOptionTagSelect(this.tagSelectTypeMsg, valueOption, textOption)
     }
 
     managerEventClickBtnProcess(functionCallBack){
-        this.utilitary.addEventListenerTagHtml(this.tagBtnProcess, 'click', functionCallBack)
+        Utilitarian.addEventListenerTagHtml(this.tagBtnProcess, 'click', functionCallBack)
     }
 
     managerEventClickBtnClear(functionCallBack){
-        this.utilitary.addEventListenerTagHtml(this.tagBtnClear, 'click', functionCallBack)
+        Utilitarian.addEventListenerTagHtml(this.tagBtnClear, 'click', functionCallBack)
     }
 
     managerEventChangeTextAreaMsgVisa2(functionCallBack){
-        this.utilitary.addEventListenerTagHtml(this.tagTextAreaMsgVisa2, 'change', functionCallBack)
+        Utilitarian.addEventListenerTagHtml(this.tagTextAreaMsgVisa2, 'change', functionCallBack)
     }
 
     managerEventChangeInputNameField(functionCallBack){
-        this.utilitary.addEventListenerTagHtml(this.tagInputNameField, 'change', functionCallBack)
+        Utilitarian.addEventListenerTagHtml(this.tagInputNameField, 'change', functionCallBack)
     }
 
     managerEventChangeSelectTypeMsg(functionCallBack){
-        this.utilitary.addEventListenerTagHtml(this.tagSelectTypeMsg, 'change', functionCallBack)
+        Utilitarian.addEventListenerTagHtml(this.tagSelectTypeMsg, 'change', functionCallBack)
     }
 
     eraseAllRegistryTable(){
-        this.utilitary.eraseAllRowTable(this.tagTable, 'tbody')
+        Utilitarian.eraseAllRowTable(this.tagTable, 'tbody')
     }
 }
