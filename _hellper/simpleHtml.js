@@ -1,4 +1,4 @@
-class Utilitarian {
+class SimpleHtml {
     
     static addEventListenerTagHtml(elementHtml, typeEvent, functionCallBack){
         elementHtml.addEventListener(typeEvent, functionCallBack)

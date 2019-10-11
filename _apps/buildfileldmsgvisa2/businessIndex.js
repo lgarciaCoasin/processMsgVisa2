@@ -40,7 +40,7 @@ class BusinessIndex {
     buildRegitryProcessingMsgVisa2(valueField, indexValue){
         let registerMsgVisa2 = {}
         registerMsgVisa2.countField = (indexValue + 1)
-        registerMsgVisa2.nameField = this.visa2.msgNameField[indexValue]
+        registerMsgVisa2.nameField = (this.visa2.msgNameField[indexValue] === undefined) ? '' : this.visa2.msgNameField[indexValue];
         registerMsgVisa2.LengthField = valueField.length
         registerMsgVisa2.valueField = valueField
         this.modelIndex.addOneRegistryTable(registerMsgVisa2)
